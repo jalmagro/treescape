@@ -160,7 +160,7 @@ treeVec <- function(tree, lambda=0, return.lambda.function=FALSE, emphasise.tips
   
   # Ordering the edges by first column places the root at the bottom.
   # Descendants will be placed always before parents.
-  edge_order <- order(tree$edge[,1], decreasing=T)
+  edge_order <- ape::reorder.phylo(tree, "postorder", index.only=T)
   edges <- tree$edge[edge_order,]
   edge_lengths <- tree$edge.length[edge_order]
 
